@@ -1,0 +1,27 @@
+INSERT INTO users (isAdmin, first_name, last_name, email, password) VALUES (1, 'John', 'Doe', 'johndoe@example.com', 'password123');
+INSERT INTO users (isAdmin, first_name, last_name, email, password) VALUES (0, 'Jane', 'Doe', 'janedoe@example.com', 'password456');
+INSERT INTO users (isAdmin, first_name, last_name, email, password) VALUES (0, 'Bob', 'Smith', 'bobsmith@example.com', 'password789');
+
+INSERT INTO ticket (id_user, new_message, subject, status) VALUES (1, 1, 'Issue with login', 'OPEN');
+INSERT INTO ticket (id_user, new_message, subject, status) VALUES (2, 0, 'Payment not processing', 'CLOSED');
+INSERT INTO ticket (id_user, new_message, subject, status) VALUES (3, 1, 'Problem with order delivery', 'OPEN');
+
+INSERT INTO message (id_ticket, id_user, text, date) VALUES (1, 1, 'I cannot login to my account. Please help.', '2023-03-29 10:30:00');
+INSERT INTO message (id_ticket, id_user, text, date) VALUES (1, 2, 'Have you tried resetting your password?', '2023-03-29 10:45:00');
+INSERT INTO message (id_ticket, id_user, text, date) VALUES (2, 3, 'My payment is not processing. Can you assist?', '2023-03-28 14:00:00');
+
+INSERT INTO favourite (id_user, id_decoration) VALUES (1, 2);
+INSERT INTO favourite (id_user, id_decoration) VALUES (1, 3);
+INSERT INTO favourite (id_user, id_decoration) VALUES (2, 1);
+
+INSERT INTO decorations (name, price, picture, description) VALUES ('Lamp', 50.99, 'lamp.jpg', 'A stylish lamp for your home.');
+INSERT INTO decorations (name, price, picture, description) VALUES ('Couch', 299.99, 'couch.jpg', 'A comfortable couch for your living room.');
+INSERT INTO decorations (name, price, picture, description) VALUES ('Rug', 79.99, 'rug.jpg', 'A soft and cozy rug for your bedroom.');
+
+INSERT INTO orders (id_user, order_number, height, width, status) VALUES (1, 1001, 150, 200, 'OPEN');
+INSERT INTO orders (id_user, order_number, height, width, status) VALUES (2, 1002, 100, 150, 'CLOSED');
+INSERT INTO orders (id_user, order_number, height, width, status) VALUES (3, 1003, 200, 250, 'OPEN');
+
+INSERT INTO curtains (id_order, name, color, description, price_square_meter) VALUES (1, 'Blackout Curtains', 'Black', 'Block out sunlight and noise', 35.99);
+INSERT INTO curtains (id_order, name, color, description, price_square_meter) VALUES (1, 'Sheer Curtains', 'White', 'Let in natural light', 25.99);
+INSERT INTO curtains (id_order, name, color, description, price_square_meter) VALUES (2, 'Grommet Curtains', 'Blue', 'Easy to install and move', 29.99);
