@@ -1,0 +1,116 @@
+
+CREATE TABLE users(
+    id_user INTEGER NOT NULL PRIMARY KEY autoincrement ,
+    isAdmin boolean,
+    first_name varchar(25) NOT NULL ,
+    last_name varchar(25) NOT NULL ,
+    email varchar(25) NOT NULL ,
+Afficher plus
+message.txt
+3 Ko
+Belkins — Aujourd’hui à 14:03
+create tables sans bug
+CREATE TABLE users(
+    id_user INTEGER NOT NULL PRIMARY KEY autoincrement ,
+    isAdmin boolean,
+    first_name varchar(25) NOT NULL ,
+    last_name varchar(25) NOT NULL ,
+    email varchar(25) NOT NULL ,
+Afficher plus
+message.txt
+3 Ko
+Belkins — Aujourd’hui à 14:21
+avec 2 insert into
+-- PART 1 : CREATE TABLES
+CREATE TABLE users(
+    id_user INTEGER NOT NULL PRIMARY KEY autoincrement ,
+    isAdmin boolean,
+    first_name varchar(25) NOT NULL ,
+    last_name varchar(25) NOT NULL ,
+Afficher plus
+message.txt
+3 Ko
+Marvex — Aujourd’hui à 14:27
+insert
+INSERT INTO users (isAdmin, first_name, last_name, email, password) VALUES (1, 'John', 'Doe', 'johndoe@example.com', 'password123');
+INSERT INTO users (isAdmin, first_name, last_name, email, password) VALUES (0, 'Jane', 'Doe', 'janedoe@example.com', 'password456');
+INSERT INTO users (isAdmin, first_name, last_name, email, password) VALUES (0, 'Bob', 'Smith', 'bobsmith@example.com', 'password789');
+
+INSERT INTO ticket (id_user, new_message, subject, status) VALUES (1, 1, 'Issue with login', 'OPEN');
+INSERT INTO ticket (id_user, new_message, subject, status) VALUES (2, 0, 'Payment not processing', 'CLOSED');
+Afficher plus
+message.txt
+3 Ko
+﻿
+-- PART 1 : CREATE TABLES
+CREATE TABLE users(
+    id_user INTEGER NOT NULL PRIMARY KEY autoincrement ,
+    isAdmin boolean,
+    first_name varchar(25) NOT NULL ,
+    last_name varchar(25) NOT NULL ,
+    email varchar(25) NOT NULL ,
+    password varchar(25) NOT NULL
+);
+CREATE TABLE ticket(
+    id_ticket INTEGER NOT NULL PRIMARY KEY autoincrement ,
+    id_user INTEGER NOT NULL ,
+    new_message BOOLEAN NOT NULL DEFAULT 0,
+    subject varchar(255) NOT NULL ,
+    status varchar(25) NOT NULL DEFAULT 'OPEN',
+    FOREIGN KEY(id_user) REFERENCES users(id_user)
+);
+
+CREATE TABLE message(
+    id_message INTEGER NOT NULL PRIMARY KEY autoincrement ,
+    id_ticket INTEGER NOT NULL ,
+    id_user INTEGER NOT NULL ,
+    'text' varchar(255) NOT NULL ,
+    'date' TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY(id_ticket) REFERENCES ticket(id_ticket),
+    FOREIGN KEY(id_user) REFERENCES users(id_user)
+);
+
+CREATE TABLE favourite(
+    id_favourite INTEGER NOT NULL PRIMARY KEY autoincrement ,
+    id_user INTEGER NOT NULL ,
+    id_decoration INTEGER NOT NULL,
+     FOREIGN KEY(id_decoration) REFERENCES decorations(id_decoration),
+     FOREIGN KEY(id_user) REFERENCES users(id_user)
+);
+
+CREATE TABLE decorations(
+    id_decoration INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT ,
+    name varchar(25) NOT NULL ,
+    price double precision NOT NULL ,
+    picture varchar(255) NOT NULL ,
+    description varchar(255) NOT NULL ,
+    'date' TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE orders(
+    id_order INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT ,
+    id_user INTEGER NOT NULL ,
+    order_number INTEGER NOT NULL ,
+    date_time TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    height INTEGER NOT NULL ,
+    width INTEGER NOT NULL ,
+    status varchar(25) NOT NULL DEFAULT 'OPEN',
+    FOREIGN KEY(id_user) REFERENCES users(id_user)
+);
+CREATE TABLE curtains(
+    id_curtain INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT ,
+    id_order INTEGER NOT NULL,
+    name varchar(255) NOT NULL ,
+    color varchar(25) NOT NULL ,
+    description varchar(255) NOT NULL ,
+    price_square_meter double precision NOT NULL,
+    FOREIGN KEY (id_order) REFERENCES orders(id_order)
+);
+
+
+-- PART 2 : INSERT INTO
+INSERT INTO "users" (isAdmin, first_name, last_name, email, password)
+VALUES(1,'Admin1','Administrator','admin@gmail.com','lemotdepassedesadmins');
+
+INSERT INTO "decorations"(name, price, picture, description)
+VALUES ('Pot de fleur',5,'/images/potdefleur.jpg','Un petit pot de fleur');
