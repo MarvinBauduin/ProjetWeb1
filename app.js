@@ -34,6 +34,7 @@ hbs.registerHelper('exists', function (variable, options) {
   
 //Controllers here
 const indexRouter = require("./routes/index.js"); 
+const usersRouter = require("./routes/users.js"); 
 
 const app = express();
 const port = 3000;
@@ -56,6 +57,7 @@ app.use(function (req, res, next) {
 
 // Call your controllers here
 app.use("/", indexRouter);
+app.use("/users", usersRouter);
 
 // Create error on page not found
 app.use((req, res, next) => next(createError(404)));
