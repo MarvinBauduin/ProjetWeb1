@@ -1,6 +1,36 @@
-*{
+* {
     margin: 0px;
     padding: 0px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 
+}
+.authlink{
+    float: right;
+    margin-left: 50px;
+}
+
+#imgError{
+    display: flex;
+    justify-content: center;
+}
+
+footer,header{
+    padding-bottom: 20px;
+    text-align: center;
+}
+
+header nav{
+    padding: 5px;
+    text-align: center;
+}
+
+header nav ul li{
+    display: inline;
+    margin: 50px;
+    font-size: x-large;
+}
+
+section{
+    padding-bottom: 20px;
+    padding-left: 50px;
 }
