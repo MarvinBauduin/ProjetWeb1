@@ -21,6 +21,7 @@
   "homepage": "https://github.com/MarvinBauduin/ProjetWeb1#readme",
   "dependencies": {
     "express": "^4.18.2",
+    "express-handlebars": "^7.0.7",
     "express-session": "^1.17.3",
     "hbs": "^4.2.0",
     "http-errors": "^2.0.0",

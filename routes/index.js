@@ -8,5 +8,11 @@ router.get('/', (req, res) => {
     res.render('index.hbs');
 });
 
+router.get('/login', (req, res, next) => {
+    console.log("login");
+    res.render('login.hbs'/*, {layout: "login_layout.hbs"}*/ );
+});
+
+
 
 module.exports = router;
