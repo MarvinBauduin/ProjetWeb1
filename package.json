@@ -1,0 +1,30 @@
+{
+  "name": "projetweb1",
+  "version": "1.0.0",
+  "description": "Projet web of group 52",
+  "main": "app.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MarvinBauduin/ProjetWeb1.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MarvinBauduin/ProjetWeb1/issues"
+  },
+  "homepage": "https://github.com/MarvinBauduin/ProjetWeb1#readme",
+  "dependencies": {
+    "express": "^4.18.2",
+    "express-session": "^1.17.3",
+    "hbs": "^4.2.0",
+    "http-errors": "^2.0.0",
+    "morgan": "^1.10.0",
+    "path": "^0.12.7"
+  }
+}
