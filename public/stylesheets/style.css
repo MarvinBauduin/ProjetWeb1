@@ -101,3 +101,11 @@ form {
       width: 100%;
     }
   }
+
+                      /**** Home page****/
+#homeImg{
+padding: 7vh 10vw;
+width: 73vw;
+height: 78vh;
+
+}
