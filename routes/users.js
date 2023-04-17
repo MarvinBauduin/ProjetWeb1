@@ -1,7 +1,11 @@
 const express = require ('express');
 const router = express.Router();
 
-/* GET home page. */
+const User = require('../models/User.js');
+const bcrypt = require('bcrypt');
+const saltRounds = 10;
+
+/* GET register page. */
 router.get('/register', (req, res, next) => {
     console.log("USER REGISTER");
     res.render('users/register');
@@ -9,8 +13,8 @@ router.get('/register', (req, res, next) => {
 
 router.post('/add', (req, res, next) => {
     console.log("ADD USERS");
-    userInfo.save({
-        name:req.body.userFirstName,
+    User.save({
+        name:req.body.userLastName,
         firstName: req.body.userFirstName,
         email: req.body.userEmail,
         password: bcrypt.hashSync(req.body.userPassword, saltRounds) 
